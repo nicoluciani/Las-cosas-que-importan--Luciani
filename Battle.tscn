@@ -1,0 +1,221 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Battle.gd" type="Script" id=1]
+[ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PlayerStats.gd" type="Script" id=4]
+[ext_resource path="res://RIO_FINAL_PADREE.png" type="Texture" id=5]
+[ext_resource path="res://Images/Mobile RPG Mockup.png" type="Texture" id=6]
+[ext_resource path="res://DefaultTheme.tres" type="Theme" id=7]
+[ext_resource path="res://StatsPanel.gd" type="Script" id=8]
+[ext_resource path="res://SwordActionButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HealActionButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://KickActionButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://muneco-sheet-export.png" type="Texture" id=12]
+[ext_resource path="res://KickActionButton.gd" type="Script" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Battle" type="Node"]
+script = ExtResource( 1 )
+enemies = [ ExtResource( 2 ), ExtResource( 3 ) ]
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Dungeon" type="Sprite" parent="."]
+position = Vector2( 102.714, 1117.42 )
+scale = Vector2( 3.62405, 3.19823 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyPosition" type="Position2D" parent="."]
+position = Vector2( 524.753, 103.377 )
+
+[node name="Slime" parent="EnemyPosition" instance=ExtResource( 3 )]
+position = Vector2( 46.376, 131.099 )
+
+[node name="Mobile RPG Mockup" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 45, 80 )
+texture = ExtResource( 6 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 970.714
+margin_top = -5.54024
+margin_right = 970.714
+margin_bottom = -5.54022
+mouse_filter = 2
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+anchor_left = -0.949
+anchor_top = 0.03
+anchor_right = 0.051
+anchor_bottom = 1.0
+margin_left = 2.49854
+margin_top = -9.79137
+margin_right = 2.49847
+margin_bottom = 8.20862
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NextRoomButton" type="Button" parent="UI/CenterContainer"]
+visible = false
+margin_left = 422.0
+margin_top = 287.0
+margin_right = 600.0
+margin_bottom = 312.0
+rect_min_size = Vector2( 70, 13 )
+text = "ENTER NEXT ROOM"
+
+[node name="StatsPanel" type="Panel" parent="UI"]
+margin_left = -359.0
+margin_top = 411.0
+margin_right = 3.0
+margin_bottom = 515.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsContainer" type="HBoxContainer" parent="UI/StatsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = -3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+margin_top = 23.0
+margin_right = 177.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+text = "Puntos de vida
+20"
+align = 1
+
+[node name="AP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+margin_left = 181.0
+margin_top = 23.0
+margin_right = 359.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+text = "Movimientos
+3"
+align = 1
+
+[node name="TextboxPanel" type="Panel" parent="UI"]
+margin_left = -871.915
+margin_top = 427.129
+margin_right = -570.915
+margin_bottom = 518.129
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Textbox" type="RichTextLabel" parent="UI/TextboxPanel"]
+margin_left = 3.70416
+margin_top = 5.0
+margin_right = 291.704
+margin_bottom = 84.0
+custom_styles/normal = SubResource( 1 )
+custom_constants/line_separation = 2
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleActionButtons" type="GridContainer" parent="UI"]
+anchor_left = -0.946
+anchor_right = -0.946
+margin_left = 410.704
+margin_top = 299.0
+margin_right = 598.704
+margin_bottom = 352.0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 8
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwordActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 9 )]
+margin_right = 79.0
+margin_bottom = 25.0
+text = "PIÑA"
+
+[node name="HealActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 10 )]
+margin_left = 87.0
+margin_right = 188.0
+margin_bottom = 25.0
+text = "CURACION"
+
+[node name="KickActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 11 )]
+margin_top = 28.0
+margin_right = 79.0
+margin_bottom = 53.0
+text = "PATADA"
+script = ExtResource( 13 )
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.0889282
+margin_top = -1.64272
+margin_right = -0.0891724
+margin_bottom = -1.64282
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeToNewRoom = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 514.793, 472.55 )
+scale = Vector2( 1.68615, 1.23866 )
+texture = ExtResource( 12 )
+vframes = 4
+hframes = 3
+frame = 9
+[connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_ap_changed"]
+[connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_hp_changed"]
+[connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_mp_changed"]
+[connection signal="pressed" from="UI/CenterContainer/NextRoomButton" to="." method="_on_NextRoomButton_pressed"]
+[connection signal="pressed" from="UI/BattleActionButtons/KickActionButton" to="UI/BattleActionButtons/KickActionButton" method="_on_KickActionButton_pressed"]

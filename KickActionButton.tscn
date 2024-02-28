@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ActionButton.tscn" type="PackedScene" id=1]
+
+[node name="KickActionButton" instance=ExtResource( 1 )]
+text = "KICK"
+
+[node name="HoverInfo" parent="." index="0"]
+description = "PATADA
+Inflige 7 puntos de daño y consume 3 movimientos."

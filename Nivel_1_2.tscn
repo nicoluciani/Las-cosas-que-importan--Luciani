@@ -1,0 +1,132 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://nivel_1_2.gd" type="Script" id=1]
+[ext_resource path="res://fuego.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Turco2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Turco.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=5]
+[ext_resource path="res://humo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Mapa Rio.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gaviota2.gd" type="Script" id=8]
+[ext_resource path="res://Sprite-0001 (1).png" type="Texture" id=9]
+[ext_resource path="res://Path2D.gd" type="Script" id=10]
+[ext_resource path="res://untitled-1.png" type="Texture" id=11]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://musicario.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Pausa.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 687.801, 167.711, 0, 0, 0, 0, 1082.88, 118.524, 0, 0, 0, 0, 1446.23, -0.476463, 0, 0, 0, 0, 1554.12, -44.9034 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "vuelo"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Rio_maps_1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 725.29, 399.411 )
+scale = Vector2( 1.41494, 0.779292 )
+
+[node name="Turco" parent="Rio_maps_1" instance=ExtResource( 4 )]
+position = Vector2( -515.436, -449.723 )
+scale = Vector2( 0.706745, 1.28322 )
+
+[node name="Jugador" parent="Rio_maps_1" instance=ExtResource( 5 )]
+position = Vector2( -147.247, -1122.71 )
+scale = Vector2( 0.706745, 1.28322 )
+
+[node name="fire1_64" parent="Rio_maps_1" instance=ExtResource( 2 )]
+
+[node name="smoke_1_40_128_corrected" parent="Rio_maps_1" instance=ExtResource( 6 )]
+
+[node name="Control" type="Control" parent="."]
+pause_mode = 2
+margin_left = 1.36041
+margin_top = -25.8471
+margin_right = 101.36
+margin_bottom = 77.1529
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 590.292
+margin_top = 362.319
+margin_right = 1104.29
+margin_bottom = 557.319
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Control"]
+margin_left = 598.0
+margin_top = 373.0
+margin_right = 697.0
+margin_bottom = 401.0
+custom_fonts/normal_font = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Control"]
+margin_left = 601.0
+margin_top = 408.441
+margin_right = 1092.0
+margin_bottom = 545.441
+custom_fonts/normal_font = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[node name="Turco1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1094.66, 465.917 )
+
+[node name="Path2D" type="Path2D" parent="."]
+pause_mode = 2
+curve = SubResource( 1 )
+script = ExtResource( 10 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 687.801, 167.711 )
+rotation = -0.123858
+loop = false
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
+position = Vector2( 4.75391, -0.139369 )
+scale = Vector2( 0.242375, 0.258817 )
+texture = ExtResource( 9 )
+hframes = 2
+script = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D/Sprite"]
+anims/vuelo = SubResource( 2 )
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 13 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource( 14 )]
+margin_left = 6.10352e-05
+margin_top = 2.2002
+margin_bottom = 2.2002

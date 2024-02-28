@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Mapa Rio.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Turco.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Gaviota.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=4]
+[ext_resource path="res://samurai-japanese-lofi-hiphop-mix.ogg" type="AudioStream" id=5]
+
+[node name="Nivel Rio" type="YSort"]
+position = Vector2( -5.72784, 12.8878 )
+
+[node name="Rio" parent="." instance=ExtResource( 1 )]
+position = Vector2( 739.238, 391.94 )
+scale = Vector2( 2.86099, 1.56318 )
+
+[node name="Gaviota" parent="Rio" instance=ExtResource( 3 )]
+position = Vector2( -452.958, -416.966 )
+
+[node name="Turco" parent="Rio" instance=ExtResource( 2 )]
+position = Vector2( -283.973, -179.208 )
+scale = Vector2( 0.349529, 0.607943 )
+
+[node name="Jugador" parent="Rio" instance=ExtResource( 4 )]
+position = Vector2( -254.291, -222.107 )
+scale = Vector2( 0.349529, 0.607943 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true

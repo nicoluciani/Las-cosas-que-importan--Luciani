@@ -1,0 +1,189 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Mapa Rio.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Turco.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Gaviota.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fuego.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Pausa.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprite-0003.png" type="Texture" id=7]
+[ext_resource path="res://humo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Gaviota.gd" type="Script" id=9]
+[ext_resource path="res://untitled-1.png" type="Texture" id=10]
+[ext_resource path="res://Parrilla.gd" type="Script" id=11]
+[ext_resource path="res://Turco1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://DIalogo1turco.gd" type="Script" id=13]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=14]
+[ext_resource path="res://musicario.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprite-0004.png" type="Texture" id=16]
+[ext_resource path="res://Sprite-0001.png" type="Texture" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54.3145, 65.356 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 89.6842, 38.1485 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 75.2837, 39.2655 )
+
+[node name="Nivel Rio" type="Node2D"]
+position = Vector2( -5.72784, 12.8878 )
+
+[node name="Rio_maps_1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 727.665, 387.882 )
+scale = Vector2( 1.42797, 0.796517 )
+
+[node name="fire1_64" parent="Rio_maps_1" instance=ExtResource( 5 )]
+position = Vector2( 146.161, 144.69 )
+scale = Vector2( 0.280504, 0.570731 )
+
+[node name="smoke_1_40_128_corrected" parent="Rio_maps_1" instance=ExtResource( 8 )]
+position = Vector2( 147.707, 36.014 )
+scale = Vector2( 0.719591, 0.439822 )
+
+[node name="Gaviota2" parent="Rio_maps_1" instance=ExtResource( 3 )]
+position = Vector2( -490.805, -659.523 )
+scale = Vector2( 0.0367937, 0.059989 )
+
+[node name="Turco" parent="Rio_maps_1" instance=ExtResource( 2 )]
+position = Vector2( -98.7884, -222.617 )
+scale = Vector2( 0.351148, 0.611504 )
+
+[node name="Jugador" parent="Rio_maps_1" instance=ExtResource( 4 )]
+position = Vector2( -370.669, -32.6391 )
+scale = Vector2( 0.351148, 0.611504 )
+
+[node name="Gaviota" type="Area2D" parent="."]
+pause_mode = 2
+position = Vector2( 740.044, 239.426 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gaviota"]
+position = Vector2( -6.64015, -44.9263 )
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Gaviota"]
+margin_left = -126.99
+margin_top = 118.046
+margin_right = 382.01
+margin_bottom = 309.046
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Gaviota"]
+margin_left = -114.0
+margin_top = 131.0
+margin_right = -23.0
+margin_bottom = 156.0
+custom_fonts/normal_font = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Gaviota"]
+margin_left = -114.868
+margin_top = 159.897
+margin_right = 369.132
+margin_bottom = 295.897
+custom_fonts/normal_font = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Gaviota"]
+
+[node name="Turco1" parent="." instance=ExtResource( 12 )]
+script = ExtResource( 13 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 100
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource( 6 )]
+margin_left = -4.56521
+margin_top = -4.32616
+margin_right = -4.56519
+margin_bottom = -4.32617
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 15 )]
+volume_db = -50.0
+
+[node name="Parrilla" type="Area2D" parent="."]
+pause_mode = 2
+position = Vector2( 997.592, 524.404 )
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrilla"]
+position = Vector2( -66.3082, -29.7312 )
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Parrilla"]
+margin_left = -329.145
+margin_top = 55.1175
+margin_right = 196.855
+margin_bottom = 251.117
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Parrilla"]
+margin_left = -315.0
+margin_top = 68.0
+margin_right = -224.0
+margin_bottom = 94.0
+custom_fonts/normal_font = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Parrilla"]
+margin_left = -314.0
+margin_top = 109.0
+margin_right = 184.0
+margin_bottom = 235.0
+custom_fonts/normal_font = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Parrilla"]
+
+[node name="Sprite-0001" type="Sprite" parent="."]
+position = Vector2( 1048.62, 140.538 )
+scale = Vector2( 1.84995, 1.75806 )
+texture = ExtResource( 17 )
+
+[node name="Sprite-0003" type="Sprite" parent="."]
+position = Vector2( 969.466, 143.402 )
+scale = Vector2( 1.55132, 1.98778 )
+texture = ExtResource( 7 )
+
+[node name="Sprite-0004" type="Sprite" parent="."]
+position = Vector2( 1010.97, 140.982 )
+scale = Vector2( 1.50538, 1.91886 )
+texture = ExtResource( 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1015.89, 138.796 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Gaviota" to="Gaviota" method="_on_Gaviota_body_entered"]
+[connection signal="body_entered" from="Gaviota" to="Turco1" method="_on_Gaviota_body_entered"]
+[connection signal="body_exited" from="Gaviota" to="Gaviota" method="_on_Gaviota_body_exited"]
+[connection signal="body_exited" from="Gaviota" to="Turco1" method="_on_Gaviota_body_exited"]
+[connection signal="body_entered" from="Turco1" to="Gaviota" method="_on_Turco1_body_entered"]
+[connection signal="body_entered" from="Turco1" to="Parrilla" method="_on_Turco1_body_entered"]
+[connection signal="quest1" from="Turco1" to="Parrilla" method="_on_Turco1_quest1"]
+[connection signal="quest2" from="Turco1" to="Gaviota" method="_on_Turco1_quest2"]
+[connection signal="body_entered" from="Parrilla" to="Parrilla" method="_on_Parrilla_body_entered"]
+[connection signal="body_entered" from="Parrilla" to="Turco1" method="_on_Parrilla_body_entered"]
+[connection signal="body_exited" from="Parrilla" to="Parrilla" method="_on_Parrilla_body_exited"]
+[connection signal="body_exited" from="Parrilla" to="Turco1" method="_on_Parrilla_body_exited"]
+[connection signal="quest3" from="Parrilla" to="Turco1" method="_on_Parrilla_quest3"]

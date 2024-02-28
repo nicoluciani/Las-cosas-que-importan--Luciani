@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprite-0001 (1).png" type="Texture" id=1]
+[ext_resource path="res://Sprite-0006.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "gaviotavolando"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="Gaviota" type="KinematicBody2D"]
+position = Vector2( 2.71307, -3.23175 )
+scale = Vector2( 0.0366241, 0.0596397 )
+
+[node name="Sprite-0006" type="Sprite" parent="."]
+position = Vector2( 7503.73, 3956.9 )
+scale = Vector2( 15.137, 10.1855 )
+texture = ExtResource( 1 )
+hframes = 2
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite-0006"]
+anims/gaviotavolando = SubResource( 1 )

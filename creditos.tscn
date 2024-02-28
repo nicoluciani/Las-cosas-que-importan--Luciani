@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://volver.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://TextoGrande.tres" type="DynamicFont" id=3]
+[ext_resource path="res://flechalabel.tres" type="DynamicFont" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -24.1663
+margin_top = -14.8336
+margin_right = 1060.83
+margin_bottom = 632.166
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 400.059
+margin_top = -2.3327
+margin_right = 644.059
+margin_bottom = 64.6673
+custom_fonts/font = ExtResource( 3 )
+text = "CREDITOS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 44.1607
+margin_top = 98.9943
+margin_right = 212.161
+margin_bottom = 119.994
+custom_fonts/font = ExtResource( 4 )
+text = "PROGRAMADORES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 41.9886
+margin_top = 131.798
+margin_right = 217.989
+margin_bottom = 236.798
+custom_fonts/font = ExtResource( 2 )
+text = "Nahuel Barrutia
+Luciano Pochiero
+Nicolás Luciani
+Gabriel Luna"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 451.378
+margin_top = 96.8072
+margin_right = 626.378
+margin_bottom = 117.807
+custom_fonts/font = ExtResource( 4 )
+text = "VISUAL DESIGNERS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 418.72
+margin_top = 129.465
+margin_right = 681.72
+margin_bottom = 180.465
+custom_fonts/font = ExtResource( 2 )
+text = "Valentín Calderón Ortega
+Gastón Bonini
+Alan Vilche"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 832.775
+margin_top = 92.1418
+margin_right = 983.775
+margin_bottom = 113.142
+custom_fonts/font = ExtResource( 4 )
+text = "GAME DESIGNER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="."]
+margin_left = 825.777
+margin_top = 129.465
+margin_right = 994.777
+margin_bottom = 153.465
+custom_fonts/font = ExtResource( 2 )
+text = "Julián Azzaretti"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="."]
+margin_left = 225.106
+margin_top = 320.747
+margin_right = 809.106
+margin_bottom = 341.747
+custom_fonts/font = ExtResource( 4 )
+text = "Basado en el cuento \"Las cosas que importan\" de Martín Sansarriq"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 425.718
+margin_top = 449.045
+margin_right = 599.718
+margin_bottom = 491.045
+custom_fonts/font = ExtResource( 4 )
+text = "VOLVER AL MENU"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

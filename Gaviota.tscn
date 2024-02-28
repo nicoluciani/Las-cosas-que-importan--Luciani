@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprite-0006.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 348.747
+height = 133.215
+
+[node name="Gaviota" type="StaticBody2D"]
+position = Vector2( 2.71307, -3.23175 )
+scale = Vector2( 0.0366241, 0.0596397 )
+
+[node name="Sprite-0006" type="Sprite" parent="."]
+position = Vector2( 13026.4, 5143.56 )
+scale = Vector2( 1.91207, 1.53209 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 12632.1, 4956.81 )
+shape = SubResource( 1 )

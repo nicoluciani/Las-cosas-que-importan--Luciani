@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Vecino.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://untitled-1.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64.4076, 61.8194 )
+
+[node name="Vecino" type="Area2D"]
+pause_mode = 2
+position = Vector2( -1707.08, -898.121 )
+scale = Vector2( 1.45768, 1.84909 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1170.76, 512.329 )
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 962.0
+margin_top = 596.0
+margin_right = 1447.0
+margin_bottom = 729.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="."]
+margin_left = 962.0
+margin_top = 610.0
+margin_right = 1053.0
+margin_bottom = 644.0
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="."]
+margin_left = 969.0
+margin_top = 628.0
+margin_right = 1431.0
+margin_bottom = 716.0
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_Vecino_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Vecino_body_exited"]

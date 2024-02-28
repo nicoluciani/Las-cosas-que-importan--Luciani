@@ -1,0 +1,292 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Control3.gd" type="Script" id=1]
+[ext_resource path="res://wachin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://agus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://viejo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pool.tscn" type="PackedScene" id=7]
+[ext_resource path="res://barman2.gd" type="Script" id=8]
+[ext_resource path="res://chica.tscn" type="PackedScene" id=9]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://untitled-1.png" type="Texture" id=11]
+[ext_resource path="res://1008904.tscn" type="PackedScene" id=12]
+[ext_resource path="res://barman.tscn" type="PackedScene" id=13]
+[ext_resource path="res://KIKO_MUERTO.png" type="Texture" id=14]
+[ext_resource path="res://chica2.gd" type="Script" id=15]
+[ext_resource path="res://agus2.gd" type="Script" id=16]
+[ext_resource path="res://TextoGrande.tres" type="DynamicFont" id=17]
+[ext_resource path="res://musicabar.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Pausa.tscn" type="PackedScene" id=19]
+[ext_resource path="res://TextoGrande2.tres" type="DynamicFont" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512.399, 421.23 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 297.228, 413.139 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 34.2087, 38.4741 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 39.3615, 37.8948 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 47.9536, 27.2658 )
+
+[node name="Nivel2_2" type="Node2D"]
+
+[node name="Bar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 723.082, 400.237 )
+scale = Vector2( 1.51562, 0.832266 )
+
+[node name="KIKO_MUERTO" type="Sprite" parent="Bar"]
+position = Vector2( 429.209, -352.99 )
+scale = Vector2( 0.033331, 0.156354 )
+texture = ExtResource( 14 )
+
+[node name="1008904" parent="Bar" instance=ExtResource( 12 )]
+position = Vector2( -429.941, -420.917 )
+scale = Vector2( 0.00971922, 0.0115349 )
+
+[node name="PERSONAJE_2t" parent="Bar" instance=ExtResource( 13 )]
+position = Vector2( -285.775, -242.866 )
+scale = Vector2( 0.0786969, 0.155934 )
+
+[node name="Barman" type="Area2D" parent="Bar/PERSONAJE_2t"]
+pause_mode = 2
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/PERSONAJE_2t/Barman"]
+position = Vector2( 0, 442.373 )
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Bar/PERSONAJE_2t/Barman"]
+margin_left = -882.106
+margin_top = 902.987
+margin_right = 893.894
+margin_bottom = 1639.99
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Bar/PERSONAJE_2t/Barman"]
+margin_left = -841.35
+margin_top = 939.896
+margin_right = -509.35
+margin_bottom = 1053.9
+custom_fonts/normal_font = ExtResource( 20 )
+custom_colors/default_color = Color( 1, 0.960784, 0.960784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Bar/PERSONAJE_2t/Barman"]
+margin_left = -844.596
+margin_top = 1074.52
+margin_right = 830.404
+margin_bottom = 1586.52
+custom_fonts/normal_font = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Bar/PERSONAJE_2t/Barman"]
+
+[node name="PERSONAJE3_2t" parent="Bar" instance=ExtResource( 7 )]
+position = Vector2( 68.0015, -222.7 )
+scale = Vector2( 0.117532, 0.175849 )
+
+[node name="PERSONAJE4" parent="Bar" instance=ExtResource( 9 )]
+position = Vector2( -59.7695, -93.0703 )
+scale = Vector2( 0.109135, 0.171268 )
+
+[node name="Chica" type="Area2D" parent="Bar/PERSONAJE4"]
+pause_mode = 2
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/PERSONAJE4/Chica"]
+position = Vector2( 0, 172.706 )
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Bar/PERSONAJE4/Chica"]
+margin_left = -702.219
+margin_top = 506.64
+margin_right = 574.781
+margin_bottom = 1149.64
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Bar/PERSONAJE4/Chica"]
+margin_left = -669.0
+margin_top = 545.0
+margin_right = -464.0
+margin_bottom = 643.0
+custom_fonts/normal_font = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Bar/PERSONAJE4/Chica"]
+margin_left = -637.0
+margin_top = 651.0
+margin_right = 511.0
+margin_bottom = 1092.0
+custom_fonts/normal_font = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Bar/PERSONAJE4/Chica"]
+
+[node name="PERSONAJE5" parent="Bar" instance=ExtResource( 4 )]
+position = Vector2( 138.971, 229.079 )
+scale = Vector2( 0.944599, 1.87069 )
+
+[node name="Agus" type="Area2D" parent="Bar/PERSONAJE5"]
+pause_mode = 2
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/PERSONAJE5/Agus"]
+position = Vector2( -3.44708, 15.0213 )
+shape = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="Bar/PERSONAJE5/Agus"]
+margin_left = -114.0
+margin_top = 31.0
+margin_right = 130.0
+margin_bottom = 135.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Bar/PERSONAJE5/Agus"]
+margin_left = -113.0
+margin_top = 35.0
+margin_right = -59.0
+margin_bottom = 64.0
+custom_fonts/normal_font = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Bar/PERSONAJE5/Agus"]
+margin_left = -107.628
+margin_top = 65.1678
+margin_right = 120.372
+margin_bottom = 129.168
+custom_fonts/normal_font = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Bar/PERSONAJE5/Agus"]
+
+[node name="viejo" parent="Bar" instance=ExtResource( 5 )]
+position = Vector2( 304.563, 115.019 )
+scale = Vector2( 0.301561, 0.784767 )
+
+[node name="PERSONAJE1" parent="Bar" instance=ExtResource( 2 )]
+position = Vector2( -366.733, 64.0945 )
+scale = Vector2( 0.968069, 2.03013 )
+
+[node name="Jugador" parent="Bar" instance=ExtResource( 6 )]
+position = Vector2( 267.256, -1061.04 )
+scale = Vector2( 0.663007, 1.20462 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 174.297, 461.373 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 828.421, 221.459 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 636.898, 339.781 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 937.226, 599.968 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1183.17, 500.334 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1358.11, 152.241 )
+shape = SubResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 1146.0
+margin_top = 267.0
+margin_right = 1451.0
+margin_bottom = 387.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Control"]
+margin_left = 1155.0
+margin_top = 268.0
+margin_right = 1214.0
+margin_bottom = 299.0
+custom_fonts/normal_font = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Control"]
+margin_left = 1154.0
+margin_top = 300.0
+margin_right = 1441.0
+margin_bottom = 380.0
+custom_fonts/normal_font = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 18 )]
+volume_db = -50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource( 19 )]
+margin_left = 3.24057
+margin_top = 3.94156
+margin_right = 3.2406
+margin_bottom = 3.94153
+[connection signal="body_entered" from="Bar/PERSONAJE_2t/Barman" to="Bar/PERSONAJE_2t/Barman" method="_on_Barman_body_entered"]
+[connection signal="body_exited" from="Bar/PERSONAJE_2t/Barman" to="Bar/PERSONAJE_2t/Barman" method="_on_Barman_body_exited"]
+[connection signal="quest1" from="Bar/PERSONAJE_2t/Barman" to="Bar/PERSONAJE4/Chica" method="_on_Barman_quest1"]
+[connection signal="quest1" from="Bar/PERSONAJE_2t/Barman" to="Bar/PERSONAJE5/Agus" method="_on_Barman_quest1"]
+[connection signal="body_entered" from="Bar/PERSONAJE4/Chica" to="Bar/PERSONAJE4/Chica" method="_on_Chica_body_entered"]
+[connection signal="body_exited" from="Bar/PERSONAJE4/Chica" to="Bar/PERSONAJE4/Chica" method="_on_Chica_body_exited"]
+[connection signal="body_entered" from="Bar/PERSONAJE5/Agus" to="Bar/PERSONAJE5/Agus" method="_on_Agus_body_entered"]
+[connection signal="body_exited" from="Bar/PERSONAJE5/Agus" to="Bar/PERSONAJE5/Agus" method="_on_Agus_body_exited"]
+[connection signal="quest2" from="Bar/PERSONAJE5/Agus" to="Bar/PERSONAJE_2t/Barman" method="_on_Area2D_quest2"]

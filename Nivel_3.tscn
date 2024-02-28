@@ -1,0 +1,368 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Departamento.tscn" type="PackedScene" id=2]
+[ext_resource path="res://novia-sheet.png" type="Texture" id=3]
+[ext_resource path="res://Pausa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://untitled-1.png" type="Texture" id=5]
+[ext_resource path="res://Laura.gd" type="Script" id=6]
+[ext_resource path="res://Heladera.gd" type="Script" id=7]
+[ext_resource path="res://Ventana.gd" type="Script" id=8]
+[ext_resource path="res://Cajon.gd" type="Script" id=9]
+[ext_resource path="res://TV.gd" type="Script" id=10]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Espejo.gd" type="Script" id=12]
+[ext_resource path="res://novia.gd" type="Script" id=13]
+[ext_resource path="res://relaxing-pokemon-music-compilation-vol-1.ogg" type="AudioStream" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "laura"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 58.5179, 66.0764 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 61.1025, 40.2296 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 50.7637, 66.0764 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 119.258, 80.2924 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 55.7966, 71.0055 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 43.1282, 49.1454 )
+
+[node name="NivelDepartamento" type="Node2D"]
+
+[node name="Departamento" parent="." instance=ExtResource( 2 )]
+position = Vector2( 722.328, 400.43 )
+scale = Vector2( 1.50521, 0.830051 )
+
+[node name="Jugador" parent="Departamento" instance=ExtResource( 1 )]
+position = Vector2( -618.533, -1212.73 )
+scale = Vector2( 0.654939, 1.19972 )
+
+[node name="novia" type="Sprite" parent="Departamento"]
+position = Vector2( 419.895, 115.41 )
+rotation = -0.0244467
+scale = Vector2( 0.195071, 0.401902 )
+texture = ExtResource( 3 )
+vframes = 6
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Departamento/novia"]
+anims/laura = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = -1.50735
+margin_top = 1.42798
+margin_right = -1.50732
+margin_bottom = 1.42792
+
+[node name="Heladera" type="Area2D" parent="."]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heladera"]
+position = Vector2( 351.52, 489.802 )
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Heladera"]
+margin_left = 115.0
+margin_top = 585.0
+margin_right = 634.0
+margin_bottom = 751.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Heladera"]
+margin_left = 123.0
+margin_top = 594.0
+margin_right = 230.0
+margin_bottom = 619.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Heladera"]
+margin_left = 127.0
+margin_top = 623.0
+margin_right = 619.0
+margin_bottom = 739.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Heladera"]
+
+[node name="Cajon" type="Area2D" parent="."]
+pause_mode = 2
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajon"]
+position = Vector2( 175.76, 527.281 )
+shape = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="Cajon"]
+margin_left = 119.0
+margin_top = 586.0
+margin_right = 608.0
+margin_bottom = 744.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Cajon"]
+margin_left = 123.0
+margin_top = 594.0
+margin_right = 220.0
+margin_bottom = 620.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Cajon"]
+margin_left = 133.0
+margin_top = 621.0
+margin_right = 596.0
+margin_bottom = 733.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Cajon"]
+
+[node name="TV" type="Area2D" parent="."]
+pause_mode = 2
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TV"]
+position = Vector2( 1413.84, 227.454 )
+shape = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="TV"]
+visible = false
+margin_right = 1452.0
+margin_bottom = 795.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TV"]
+margin_left = 1076.0
+margin_top = 337.478
+margin_right = 1447.0
+margin_bottom = 485.478
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="TV"]
+margin_left = 1079.74
+margin_top = 346.985
+margin_right = 1158.74
+margin_bottom = 372.985
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="TV"]
+margin_left = 1082.99
+margin_top = 367.985
+margin_right = 1434.99
+margin_bottom = 473.985
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="TV"]
+
+[node name="Ventana" type="Area2D" parent="."]
+pause_mode = 2
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ventana"]
+position = Vector2( 679.778, 81.4183 )
+shape = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Ventana"]
+margin_left = 514.0
+margin_top = 210.0
+margin_right = 934.0
+margin_bottom = 361.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Ventana"]
+margin_left = 522.0
+margin_top = 219.0
+margin_right = 606.0
+margin_bottom = 244.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Ventana"]
+margin_left = 523.0
+margin_top = 242.0
+margin_right = 921.0
+margin_bottom = 348.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Ventana"]
+
+[node name="Espejo" type="Area2D" parent="."]
+pause_mode = 2
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Espejo"]
+position = Vector2( 270.36, 239.335 )
+shape = SubResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Espejo"]
+margin_left = 102.0
+margin_top = 353.0
+margin_right = 462.0
+margin_bottom = 488.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Espejo"]
+margin_left = 111.0
+margin_top = 360.0
+margin_right = 181.0
+margin_bottom = 387.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Espejo"]
+margin_left = 111.0
+margin_top = 383.0
+margin_right = 449.0
+margin_bottom = 478.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Espejo"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -60.0
+autoplay = true
+
+[node name="Laura" type="Area2D" parent="."]
+pause_mode = 2
+position = Vector2( -36.7825, 27.9439 )
+rotation = -0.0134831
+scale = Vector2( 1, 0.991998 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laura"]
+position = Vector2( 1365.65, 512.495 )
+shape = SubResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="Laura"]
+margin_left = 1067.0
+margin_top = 633.0
+margin_right = 1432.0
+margin_bottom = 777.0
+rect_rotation = 1.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Laura"]
+margin_left = 1073.48
+margin_top = 637.971
+margin_right = 1150.48
+margin_bottom = 662.971
+rect_rotation = 1.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Laura"]
+margin_left = 1074.0
+margin_top = 665.0
+margin_right = 1421.0
+margin_bottom = 770.0
+rect_rotation = 1.0
+custom_fonts/normal_font = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Laura"]
+[connection signal="body_entered" from="Heladera" to="Laura" method="_on_Heladera_body_entered"]
+[connection signal="body_entered" from="Heladera" to="Heladera" method="_on_Heladera_body_entered"]
+[connection signal="body_exited" from="Heladera" to="Heladera" method="_on_Heladera_body_exited"]
+[connection signal="body_entered" from="Cajon" to="Laura" method="_on_Cajon_body_entered"]
+[connection signal="body_entered" from="Cajon" to="Cajon" method="_on_Cajon_body_entered"]
+[connection signal="body_exited" from="Cajon" to="Cajon" method="_on_Cajon_body_exited"]
+[connection signal="quest3" from="Cajon" to="TV" method="_on_Cajon_quest3"]
+[connection signal="body_entered" from="TV" to="TV" method="_on_TV_body_entered"]
+[connection signal="body_exited" from="TV" to="TV" method="_on_TV_body_exited"]
+[connection signal="body_entered" from="Ventana" to="Ventana" method="_on_Ventana_body_entered"]
+[connection signal="body_exited" from="Ventana" to="Ventana" method="_on_Ventana_body_exited"]
+[connection signal="body_entered" from="Espejo" to="Espejo" method="_on_Espejo_body_entered"]
+[connection signal="body_exited" from="Espejo" to="Espejo" method="_on_Espejo_body_exited"]
+[connection signal="body_entered" from="Laura" to="Laura" method="_on_Laura_body_entered"]
+[connection signal="body_entered" from="Laura" to="Heladera" method="_on_Laura_body_entered"]
+[connection signal="body_entered" from="Laura" to="Cajon" method="_on_Laura_body_entered"]
+[connection signal="body_entered" from="Laura" to="TV" method="_on_Laura_body_entered"]
+[connection signal="body_exited" from="Laura" to="Laura" method="_on_Laura_body_exited"]
+[connection signal="quest1" from="Laura" to="Heladera" method="_on_Laura_quest1"]
+[connection signal="quest2" from="Laura" to="Cajon" method="_on_Laura_quest2"]

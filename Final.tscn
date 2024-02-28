@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://final.gd" type="Script" id=1]
+[ext_resource path="res://untitled-1.png" type="Texture" id=2]
+[ext_resource path="res://RIO_FINAL_PADREE.png" type="Texture" id=3]
+[ext_resource path="res://muneco-sheet-export.png" type="Texture" id=4]
+[ext_resource path="res://TURCO.png" type="Texture" id=5]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Pausa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://musicario.tscn" type="PackedScene" id=8]
+[ext_resource path="res://flechalabel.tres" type="DynamicFont" id=9]
+
+[node name="Final" type="Node2D"]
+
+[node name="RIO_FINAL_PADREE" type="Sprite" parent="."]
+position = Vector2( -99.588, 141.399 )
+scale = Vector2( 2.20749, 0.92452 )
+texture = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_left = -1.93494
+margin_top = 0.245911
+margin_right = -1.93494
+margin_bottom = 0.245911
+
+[node name="TURCO" type="Sprite" parent="."]
+position = Vector2( 544.795, 122.189 )
+scale = Vector2( 0.560204, 0.376778 )
+texture = ExtResource( 5 )
+
+[node name="muneco-sheet-export" type="Sprite" parent="."]
+position = Vector2( 553.297, 206.274 )
+scale = Vector2( 1.95784, 1.18113 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 3
+frame = 9
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 328.549
+margin_top = 317.613
+margin_right = 797.549
+margin_bottom = 510.613
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="Control"]
+margin_left = 341.0
+margin_top = 329.0
+margin_right = 424.0
+margin_bottom = 354.0
+custom_fonts/normal_font = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="Control"]
+margin_left = 340.0
+margin_top = 361.0
+margin_right = 785.0
+margin_bottom = 502.0
+custom_fonts/normal_font = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 490.2
+margin_top = 415.1
+margin_right = 603.2
+margin_bottom = 436.1
+custom_fonts/font = ExtResource( 9 )
+text = "Presione la E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 8 )]
+volume_db = -50.0

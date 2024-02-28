@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://TextoGrande.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Button.gd" type="Script" id=3]
+[ext_resource path="res://Button2.gd" type="Script" id=4]
+[ext_resource path="res://BOT3.gd" type="Script" id=5]
+[ext_resource path="res://IMG_20200208_194518211_HDR.jpg" type="Texture" id=6]
+[ext_resource path="res://Button0.gd" type="Script" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_top = 3.17334
+margin_right = 1023.0
+margin_bottom = 608.173
+
+[node name="IMG_20200208_194518211_HDR" type="Sprite" parent="Control"]
+position = Vector2( 513.624, 301.196 )
+scale = Vector2( 0.340768, 0.151037 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 174.517
+margin_top = 17.8219
+margin_right = 885.517
+margin_bottom = 84.8219
+custom_fonts/font = ExtResource( 2 )
+text = "Las Cosas que Importan"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 367.627
+margin_top = 170.173
+margin_right = 609.627
+margin_bottom = 233.173
+custom_fonts/font = ExtResource( 1 )
+text = "JUGAR"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+margin_left = 375.346
+margin_top = 490.288
+margin_right = 614.346
+margin_bottom = 557.288
+custom_fonts/font = ExtResource( 1 )
+text = "SALIR"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Control"]
+margin_left = 373.173
+margin_top = 285.414
+margin_right = 613.173
+margin_bottom = 352.414
+custom_fonts/font = ExtResource( 1 )
+text = "COMO JUGAR"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Control"]
+margin_left = 370.665
+margin_top = 394.098
+margin_right = 618.665
+margin_bottom = 459.098
+custom_fonts/font = ExtResource( 1 )
+text = "CREDITOS"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="Control/Button2" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Control/Button3" to="Control/Button3" method="_on_Button3_pressed"]
+[connection signal="pressed" from="Control/Button4" to="Control/Button4" method="_on_Button4_pressed"]

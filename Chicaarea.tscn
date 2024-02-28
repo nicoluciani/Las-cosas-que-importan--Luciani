@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Chica.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://untitled-1.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 58.5636, 65.7154 )
+
+[node name="Chica" type="Area2D"]
+pause_mode = 2
+position = Vector2( -4190.41, -2426.95 )
+scale = Vector2( 6.40104, 7.36464 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 562.977, 401.292 )
+shape = SubResource( 14 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 346.322
+margin_top = 500.859
+margin_right = 799.322
+margin_bottom = 659.859
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="."]
+margin_left = 354.052
+margin_top = 508.104
+margin_right = 443.052
+margin_bottom = 539.104
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="."]
+margin_left = 355.0
+margin_top = 536.0
+margin_right = 785.0
+margin_bottom = 652.0
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_Chica_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Chica_body_exited"]

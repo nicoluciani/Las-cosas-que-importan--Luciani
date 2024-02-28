@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="Rio_maps_1" type="Node2D"]
+position = Vector2( 513.73, 287.285 )
+scale = Vector2( 2.00201, 1.16434 )

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://TextoGrande.tres" type="DynamicFont" id=1]
+[ext_resource path="res://botonfin.gd" type="Script" id=2]
+[ext_resource path="res://flechalabel.tres" type="DynamicFont" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1024.0
+margin_bottom = 601.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 272.516
+margin_top = 240.485
+margin_right = 719.516
+margin_bottom = 307.485
+custom_fonts/font = ExtResource( 1 )
+text = "FIN DE LA DEMO"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 446.34
+margin_top = 421.032
+margin_right = 550.34
+margin_bottom = 503.032
+custom_fonts/font = ExtResource( 3 )
+text = "SALIR"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

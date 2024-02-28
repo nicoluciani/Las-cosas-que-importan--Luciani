@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://TURCO-sheet.png" type="Texture" id=1]
+[ext_resource path="res://TURCO.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "turco"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 19.9495, 52.8769 )
+
+[node name="Turco" type="StaticBody2D"]
+position = Vector2( 20.3246, -3.8837 )
+
+[node name="TURCO" type="Sprite" parent="."]
+position = Vector2( 1124.35, 349.33 )
+scale = Vector2( 0.323132, 0.394398 )
+texture = ExtResource( 1 )
+vframes = 7
+frame = 6
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TURCO"]
+anims/turco = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1125.92, 354.169 )
+shape = SubResource( 2 )

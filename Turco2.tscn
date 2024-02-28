@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://dialogoturco.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://untitled-1.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 46.1521, 55.8333 )
+
+[node name="Turco1" type="Area2D"]
+pause_mode = 2
+position = Vector2( 1116.87, 423.077 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 28.9131, -17.2968 )
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -210.537
+margin_top = 97.3755
+margin_right = 311.463
+margin_bottom = 301.376
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogo" type="RichTextLabel" parent="."]
+margin_left = -200.073
+margin_top = 143.853
+margin_right = 291.927
+margin_bottom = 286.853
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nombre" type="RichTextLabel" parent="."]
+margin_left = -197.0
+margin_top = 110.015
+margin_right = -109.0
+margin_bottom = 136.015
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_Turco1_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Turco1_body_exited"]

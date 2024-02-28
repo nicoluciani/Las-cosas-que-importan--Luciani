@@ -1,0 +1,63 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=2]
+[ext_resource path="res://colisionesbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Pausa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://kiko.tscn" type="PackedScene" id=5]
+[ext_resource path="res://musicabar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://barman.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pool.tscn" type="PackedScene" id=10]
+[ext_resource path="res://wachin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://chica.tscn" type="PackedScene" id=12]
+[ext_resource path="res://agus.tscn" type="PackedScene" id=13]
+[ext_resource path="res://viejo.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Barmanarea.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Vecinoarea.tscn" type="PackedScene" id=17]
+[ext_resource path="res://TVBar.tscn" type="PackedScene" id=18]
+[ext_resource path="res://1008904.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Loco.tscn" type="PackedScene" id=20]
+
+[node name="Nivel Bar" type="Node2D"]
+
+[node name="Bar" parent="." instance=ExtResource( 1 )]
+position = Vector2( 722.927, 398.302 )
+
+[node name="Jugador" parent="Bar" instance=ExtResource( 2 )]
+position = Vector2( -467.109, -387.078 )
+scale = Vector2( 0.593676, 1.06966 )
+
+[node name="wachin" parent="Bar" instance=ExtResource( 11 )]
+
+[node name="kiko" parent="Bar" instance=ExtResource( 5 )]
+
+[node name="Loco" parent="Bar/kiko" instance=ExtResource( 20 )]
+
+[node name="barman" parent="Bar" instance=ExtResource( 9 )]
+
+[node name="Barman" parent="Bar/barman" instance=ExtResource( 16 )]
+
+[node name="chica" parent="Bar" instance=ExtResource( 12 )]
+
+[node name="pool" parent="Bar" instance=ExtResource( 10 )]
+
+[node name="agus" parent="Bar" instance=ExtResource( 13 )]
+
+[node name="viejo" parent="Bar" instance=ExtResource( 15 )]
+
+[node name="Vecino" parent="Bar/viejo" instance=ExtResource( 17 )]
+
+[node name="StaticBody2D" parent="Bar" instance=ExtResource( 3 )]
+
+[node name="TVBar" parent="." instance=ExtResource( 18 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = 6.84261e-05
+
+[node name="1008904" parent="." instance=ExtResource( 19 )]
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 7 )]
+volume_db = -50.0
+[connection signal="quest1" from="Bar/barman/Barman" to="Bar/kiko/Loco" method="_on_Barman_quest1"]

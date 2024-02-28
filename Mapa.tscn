@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://botonmapa4.gd" type="Script" id=1]
+[ext_resource path="res://Sprite.gd" type="Script" id=2]
+[ext_resource path="res://Botonmapa3.gd" type="Script" id=3]
+[ext_resource path="res://botonmapa5.gd" type="Script" id=4]
+[ext_resource path="res://kisspng-cvs-pharmacy-child-infant-mouth-disease-thought-bubble-5a746a3ec14798.4822727115175788147917.png" type="Texture" id=5]
+[ext_resource path="res://botoncancha.gd" type="Script" id=6]
+[ext_resource path="res://TextoGrande.tres" type="DynamicFont" id=7]
+
+[node name="Mapa" type="Control"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 222.318, 211.119 )
+scale = Vector2( 0.224435, 0.22236 )
+texture = ExtResource( 5 )
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="Sprite"]
+margin_left = -522.0
+margin_top = -671.0
+margin_right = -278.0
+margin_bottom = -466.0
+custom_fonts/font = ExtResource( 7 )
+text = "Bar"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Sprite"]
+margin_left = 216.866
+margin_top = -703.682
+margin_right = 469.866
+margin_bottom = -482.682
+custom_fonts/font = ExtResource( 7 )
+text = "Rio"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Sprite"]
+margin_left = -611.795
+margin_top = -324.256
+margin_right = -51.7952
+margin_bottom = -102.256
+custom_fonts/font = ExtResource( 7 )
+text = "Departamento"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Sprite"]
+margin_left = 137.047
+margin_top = -332.326
+margin_right = 605.047
+margin_bottom = -118.326
+custom_fonts/font = ExtResource( 7 )
+text = "Cancha"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Sprite/Button" to="Sprite/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Sprite/Button2" to="Sprite/Button2" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Sprite/Button3" to="Sprite/Button3" method="_on_Button3_pressed"]
+[connection signal="pressed" from="Sprite/Button4" to="Sprite/Button4" method="_on_Button4_pressed"]
